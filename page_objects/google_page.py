@@ -1,6 +1,8 @@
 from page_objects.base_page import BasePage
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys  
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException
 from datetime import datetime, timedelta
 
@@ -17,7 +19,9 @@ class GooglePage(BasePage):
         return self.getSelector('#Odp5De  div[role="button"]  span > span:first-child')
     
     def news_link(self):
-        return self.getLinkText("News")
+        wait = WebDriverWait(self.driver, 10)
+        news_link = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, "News")))
+        return news_link 
     
     def news_articles(self):
         return self.getSelectors("#rso > div > div > div")
@@ -35,9 +39,11 @@ class GooglePage(BasePage):
         return filtered_results[:11]
     
     def click_news_link(self):
+
         self.news_link().click()
         
     def get_articles_by_date(self):
+        filtered_articles = []
         for article in self.news_articles():
             title = article.find_element(By.CSS_SELECTOR,'div[role="heading"]').text
         
@@ -46,7 +52,9 @@ class GooglePage(BasePage):
             three_months_ago = datetime.now() - timedelta(days=90)
 
             if date >= three_months_ago:
+              filtered_articles.append(f"Title: {title}, Date: {date_text}")
               print(f"Title: {title}, Date: {date_text}")
+        return filtered_articles 
 
   
   
