@@ -13,18 +13,16 @@ class GooglePage(BasePage):
       super().__init__(driver)
     
     def search_bar(self):  
-        return self.getSelector('textarea[name="q"]') 
+        return self.get_selector('textarea[name="q"]') 
   
     def view_more_button(self):  
-        return self.getSelector('#Odp5De  div[role="button"]  span > span:first-child')
+        return self.get_selector('#Odp5De  div[role="button"]  span > span:first-child')
     
     def news_link(self):
-        wait = WebDriverWait(self.driver, 10)
-        news_link = wait.until(EC.element_to_be_clickable((By.LINK_TEXT, "News")))
-        return news_link 
+        return self.get_link_text("News")
     
     def news_articles(self):
-        return self.getSelectors("#rso > div > div > div")
+        return self.get_selectors("#rso > div > div > div")
         
   
     def search(self, query):  
@@ -34,7 +32,7 @@ class GooglePage(BasePage):
     def get_search_results(self):
         self.view_more_button().click()
         
-        results = self.getSelectors("div.sinMW")
+        results = self.get_selectors("div.sinMW")
         filtered_results = [result for result in results if result.text.strip()]
         return filtered_results[:11]
     
