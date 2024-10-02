@@ -14,7 +14,7 @@
 I Used Debian so if you are using any other distro you may need to change some of the code below accordingly.
 * Install Python env `sudo apt install python3-venv`
 * Create a Python environment `python3 -m venv .venv`
-* ACtivate the Python environment you just created `source .venv/bin/activate`
+* Activate the Python environment you just created `source .venv/bin/activate`
 * Install the necessary packages `pip install -r requirements.txt`
 
 #### Windows:
