@@ -45,7 +45,7 @@ uncomment Line 1
 comment from line 6 to line 36
 uncomment from line 38 to line 69
 
-* Run ``pytest -s --count=1`
+* Run `pytest -s --count=1`
 
 That should be enough to run the project
 
