@@ -8,10 +8,13 @@ import time
   
 class GooglePage(BasePage):
     def __init__(self, driver):
-      super().__init__(driver) 
-  
+      super().__init__(driver)
+    
     def search_bar(self):  
-        return self.getSelector('textarea[name="q"]')
+        return self.getSelector('textarea[name="q"]') 
+  
+    def view_more_button(self):  
+        return self.getSelector('#Odp5De  div[role="button"]  span > span:first-child')
         
   
     def search(self, query):  
@@ -19,11 +22,11 @@ class GooglePage(BasePage):
         search_box.send_keys(query + Keys.RETURN) 
     
     def get_search_results(self):
-        view_mote_button = self.getSelector('#Odp5De  div[role="button"]  span > span:first-child')
-        view_mote_button.click()
+        self.view_more_button().click()
         
         results = self.getSelectors("div.sinMW")
         filtered_results = [result for result in results if result.text.strip()]
         return filtered_results[:11]
 
+  
   
