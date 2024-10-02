@@ -43,9 +43,9 @@ Pytest:
 Running the test with basic pytest only if you want to debug
 to do this you will need to comment and uncomment some lines in [Google Search Tests](./specs/search/google_test.py)
 
-uncomment Line 1
-comment from line 6 to line 36
-uncomment from line 38 to line 69
+* uncomment Line 1
+* comment from line 6 to line 36
+* uncomment from line 38 to line 69
 
 * Run `pytest -s --count=1`
 
