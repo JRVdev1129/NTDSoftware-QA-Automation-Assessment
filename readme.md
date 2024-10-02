@@ -32,11 +32,11 @@ You can either Run the test using behave, pytest or pytest-bdd
 
 Pytest-bdd(recommended):
 
-* `pytest -s --count=1`
+* Run `pytest -s --count=1`
 
 Behave:
 
-* `behave`
+* Run `behave`
 
 Pytest:
 
