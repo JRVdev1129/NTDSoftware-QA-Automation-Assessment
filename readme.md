@@ -29,7 +29,8 @@ I Used Debian so if you are using any other distro you may need to change some o
 ### How to run tests locally
 
 You can either Run the test using behave, pytest or pytest-bdd
-Pytest-bdd:
+
+Pytest-bdd(recommended):
 
 * `pytest -s --count=1`
 
